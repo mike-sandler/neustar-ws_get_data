@@ -11,8 +11,14 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'rake'
+require "rspec/core/rake_task"
 
-task :default => :rspec
+
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
+end
+
+task :default => :spec
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|

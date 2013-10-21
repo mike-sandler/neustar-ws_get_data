@@ -5,10 +5,11 @@ class Neustar::WsGetData::Client
 
   # @param [String] username
   # @param [String] password
-  def initialize(username, password)
+  def initialize(options = {})
     @service = Savon.client(:wsdl => Neustar::WsGetData::WSDL)
-    @username = username
-    @password = password
+    @username   = options[:username] or raise ConfigurationError, "Username required"
+    @password   = options[:password] or raise ConfigurationError, "Password required"
+    @service_id = options[:service_id] or raise ConfigurationError, "Service ID required"
   end
 
   # List operations available to the client.
@@ -21,6 +22,7 @@ class Neustar::WsGetData::Client
   # Execute an 'interactive' query.
   #
   # @param [Hash] params 
+  # @return [Hash]
   def query(params)
     call(:query, params)
   end
@@ -28,6 +30,7 @@ class Neustar::WsGetData::Client
   # Execute a batch query.
   #
   # @param [Hash] params 
+  # @return [Hash]
   def batch_query(params)
     call(:batch_query, params)
   end
@@ -35,14 +38,31 @@ class Neustar::WsGetData::Client
   # Execute the given service type.
   #
   # @param [Symbol] service
+  # @return [Hash]
   def call(service, params)
-    request = origination_params.merge(:transId => build_transaction_id)
+    transaction_id = params.fetch(:transaction_id) { build_transaction_id }
+
+    message = origination_params.
+              merge(:transId => transaction_id).
+              merge(params)
 
     begin
-      @service.call(service, :message => request.merge(params))
+      response = @service.call(service, :message => message)
+      process_response(service, response)
     rescue Savon::SOAPFault => error
       raise Neustar::Error, extract_fault_message(error)
     end
+  end
+
+  # Execute intial post-processing and error handling on the response.
+  #
+  # @param [Symbol] service
+  # @param [Savon::Response] response
+  #
+  # @return [Hash]
+  def process_response(service, response)
+    response_wrapper = response.body[:"#{service}_response"]
+    response_wrapper && response_wrapper[:response]
   end
 
   # Helper to access PhoneAttributes element
@@ -62,7 +82,7 @@ class Neustar::WsGetData::Client
       :origination => {
         :username => @username, :password => @password
       },
-      :serviceId   => ''
+      :serviceId   => @service_id.to_s
     }
   end
 

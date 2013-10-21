@@ -1,6 +1,7 @@
 require 'savon'
+require 'securerandom'
 
-# Toplevel namespace
+# Top-level namespace
 module Neustar
   # Wrapper to interface with the WS-GetData Service
   module WsGetData
@@ -10,6 +11,10 @@ module Neustar
 
   # Top-level error class for Neustar
   class Error < StandardError
+  end
+
+  # Error to be raised when basic configuration is missing.
+  class ConfigurationError < Error
   end
 end
 

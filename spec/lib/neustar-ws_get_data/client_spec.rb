@@ -2,13 +2,40 @@ require 'spec_helper'
 
 module Neustar::WsGetData
   describe Client do
-    let(:client) { Client.new('foo', 'bar') }
+    let(:credentials) { {:username => 'foo', :password => 'bar', :service_id => 123} }
+    let(:client) { Client.new(credentials) }
+    let(:savon_client) { double('Savon Client') }
+    let(:service)  { :query }
+
+    let(:successful_response) { double(Savon::Response, :body => body) }
+    let(:body) do
+      {
+        :query_response => {
+          :response => {
+            :trans_id => "12345",
+            :error_code => "0",
+            :error_value => nil,
+            :result => {
+              :element => {
+                :id => "1320",
+                :error_code => "0",
+                :value => "N,U,A1,W"
+              }
+            }
+          },
+         :@xmlns=>"http://TARGUSinfo.com/WS-GetData"
+        }
+      }
+    end
+
+    before do
+      Savon.stub(:client).and_return(savon_client)
+    end
 
     describe "operations" do
       it "should fetch available operations from savon" do
         operations = [:super, :duper]
 
-        savon_client = double('Savon Client')
         savon_client.should_receive(:operations).and_return(operations)
         Savon.should_receive(:client).and_return(savon_client)
 
@@ -35,41 +62,53 @@ module Neustar::WsGetData
     end
 
     describe "call" do
-      let(:savon_client) { double('Savon Client') }
-      let(:response) { "mock response" }
-      let(:service)  { "mock service" }
-      let(:params)   { {:foo => 'bar'} }
+      it "should execute call on savon client and process response" do
+        result = "mock result"
 
-      before do
-        Savon.stub(:client).and_return(savon_client)
-      end
-
-      it "should execute call on savon client" do
         savon_client.
           should_receive(:call).
           with(service, hash_including(:message => anything)).
-          and_return(response)
+          and_return(successful_response)
 
-        client.call(service, params).should == response
+        client.should_receive(:process_response).with(service, successful_response).and_return(result)
+        client.call(service, {}).should == result
       end
 
       it "should re-raise Savon::SOAPFault as native exception" do
-        fault = \
-          Savon::SOAPFault.new(new_response(:body => load_fixture('fault.xml')), nori)
-        
         savon_client.
           should_receive(:call).
-          and_raise(fault)
+          and_raise(soap_fault)
 
         expect {
-          client.call(service, params)
+          client.call(service, {})
         }.to raise_error(Neustar::Error, "Access Violation - Invalid Origination")
+      end
+    end
+
+    describe "process_response" do
+      it "should extract base query response" do
+        client.process_response(:query, successful_response).should == \
+        {
+          :trans_id => "12345",
+          :error_code => "0",
+          :error_value => nil,
+          :result => {
+            :element => {
+              :id => "1320",
+              :error_code => "0",
+              :value => "N,U,A1,W"
+            }
+          }
+        }
       end
     end
 
     describe "origination_params" do
       it "should set username and password in origination field" do
-        origination = client.origination_params[:origination]
+        params = client.origination_params
+        params[:serviceId].should == "123"
+
+        origination = params[:origination]
         origination[:username].should == "foo"
         origination[:password].should == "bar"
       end
