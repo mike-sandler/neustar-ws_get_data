@@ -1,6 +1,7 @@
 # Neustar::WsGetData
 
-TODO: Write a gem description
+This gem wraps the SOAP interface for Neustar's WS-GetData Services. It
+supports both interactive and batch queries.
 
 ## Installation
 
@@ -18,7 +19,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+  client = Neustar::WsGetData::Client.new(
+    :username => 'username',
+    :password => 'password',
+    :service_id => 123456
+  )
+
+  client.operations
+  => [:query, :batch_query]
+
+  client.phone_attributes('8583145300', [:phone_type])
+  => {:phone_type=>:wireless}
+
+  client.phone_attributes('8583145300')
+  => {:prepaid_phone=>false, :business_phone=>:unknown, :phone_in_service=>"Active for 1 month or less", :phone_type=>:wireless}
 
 ## Contributing
 
