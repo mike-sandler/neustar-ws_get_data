@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <queryResponse xmlns="http://TARGUSinfo.com/WS-GetData">
+      <response>
+        <transId>374265</transId>
+        <errorCode>0</errorCode>
+        <errorValue />
+        <result>
+          <element>
+            <id>1320</id>
+            <errorCode>0</errorCode>
+            <value>N,U,A1,W</value>
+          </element>
+        </result>
+      </response>
+    </queryResponse>
+  </soap:Body>
+</soap:Envelope>
