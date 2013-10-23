@@ -1,0 +1,1028 @@
+---
+:cane:
+  :total_violations: 20
+  :violations:
+    :line_style:
+    - :line: lib/neustar-ws_get_data/client.rb:10
+      :description: Line is >80 characters (85)
+    - :line: lib/neustar-ws_get_data/client.rb:11
+      :description: Line is >80 characters (85)
+    - :line: lib/neustar-ws_get_data/client.rb:12
+      :description: Line is >80 characters (89)
+    - :line: lib/neustar-ws_get_data/client.rb:24
+      :description: Line contains trailing whitespace
+    - :line: lib/neustar-ws_get_data/client.rb:32
+      :description: Line contains trailing whitespace
+    - :line: lib/neustar-ws_get_data/elements/phone_attributes.rb:162
+      :description: Line contains trailing whitespace
+    - :line: spec/lib/neustar-ws_get_data/client_spec.rb:5
+      :description: Line is >80 characters (86)
+    - :line: spec/lib/neustar-ws_get_data/client_spec.rb:73
+      :description: Line is >80 characters (102)
+    - :line: spec/lib/neustar-ws_get_data/client_spec.rb:84
+      :description: Line is >80 characters (82)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:10
+      :description: Line is >80 characters (97)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:14
+      :description: Line is >80 characters (111)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:15
+      :description: Line is >80 characters (114)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:40
+      :description: Line is >80 characters (105)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:48
+      :description: Line is >80 characters (87)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:54
+      :description: Line is >80 characters (96)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:77
+      :description: Line is >80 characters (91)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:78
+      :description: Line is >80 characters (109)
+    - :line: spec/lib/neustar-ws_get_data/elements/phone_attributes_spec.rb:83
+      :description: Line is >80 characters (87)
+    - :line: spec/spec_helper.rb:3
+      :description: Line is >80 characters (85)
+    - :line: spec/support/savon.rb:18
+      :description: Line is >80 characters (98)
+:churn:
+  :changes: []
+  :class_churn: []
+  :method_churn: []
+  :changed_files: []
+  :changed_classes: []
+  :changed_methods: []
+:flay:
+  :total_score: '0'
+  :matches: []
+:flog:
+  :total: 81.56361065071735
+  :average: 4.797859450042197
+  :method_containers:
+  - :name: Neustar::WsGetData::PhoneAttributes
+    :path: lib/neustar-ws_get_data/elements/phone_attributes.rb
+    :total_score: 30.12820176750361
+    :highest_score: 14.160155366379284
+    :average_score: 6.025640353500722
+    :methods:
+      Neustar::WsGetData::PhoneAttributes#process_response:
+        :operators:
+          :branch: 4.9
+          :[]: 6.7
+          :==: 1.0
+          :raise: 1.1
+          :assignment: 3.900000000000001
+          :each: 1.2000000000000002
+          :detect: 1.3000000000000003
+          :index: 1.4000000000000004
+        :score: 14.160155366379284
+        :path: lib/neustar-ws_get_data/elements/phone_attributes.rb:131
+      Neustar::WsGetData::PhoneAttributes#parse_indicators:
+        :operators:
+          :assignment: 1.0
+          :branch: 1.0
+          :empty?: 1.0
+          :values: 1.1
+          :values_at: 1.1
+          :join: 1.0
+        :score: 4.431703961232068
+        :path: lib/neustar-ws_get_data/elements/phone_attributes.rb:152
+      Neustar::WsGetData::PhoneAttributes#query:
+        :operators:
+          :assignment: 3.0
+          :parse_indicators: 1.0
+          :execute_request: 1.2
+          :process_response: 1.0
+        :score: 4.386342439892262
+        :path: lib/neustar-ws_get_data/elements/phone_attributes.rb:90
+      Neustar::WsGetData::PhoneAttributes#none:
+        :operators:
+          :extend: 2.0
+          :lit_fixnum: 1.75
+        :score: 3.75
+        :path: 
+      Neustar::WsGetData::PhoneAttributes#execute_request:
+        :operators:
+          :[]: 2.4
+          :query: 1.0
+        :score: 3.4
+        :path: lib/neustar-ws_get_data/elements/phone_attributes.rb:107
+  - :name: main
+    :path: ''
+    :total_score: 11.802965729002182
+    :highest_score: 11.802965729002182
+    :average_score: 11.802965729002182
+    :methods:
+      main#none:
+        :operators:
+          :require: 5.6000000000000005
+          :expand_path: 3.7
+          :assignment: 1.1
+          :branch: 1.1
+          :[]: 1.3
+          :each: 1.1
+        :score: 11.802965729002182
+        :path: 
+  - :name: Neustar::WsGetData::Client
+    :path: lib/neustar-ws_get_data/client.rb
+    :total_score: 39.63244315421155
+    :highest_score: 11.521284650593442
+    :average_score: 3.6029493776555954
+    :methods:
+      Neustar::WsGetData::Client#call:
+        :operators:
+          :assignment: 4.300000000000001
+          :branch: 2.0
+          :fetch: 1.0
+          :build_transaction_id: 1.1
+          :origination_params: 1.4
+          :merge: 2.2
+          :call: 1.2000000000000002
+          :process_response: 1.2000000000000002
+          :extract_fault_message: 1.3
+          :raise: 1.1
+        :score: 11.521284650593442
+        :path: lib/neustar-ws_get_data/client.rb:42
+      Neustar::WsGetData::Client#initialize:
+        :operators:
+          :assignment: 5.300000000000001
+          :client: 1.0
+          :branch: 3.0
+          :[]: 3.3000000000000003
+          :raise: 3.3000000000000003
+        :score: 9.739096467332072
+        :path: lib/neustar-ws_get_data/client.rb:8
+      Neustar::WsGetData::Client#extract_fault_message:
+        :operators:
+          :assignment: 2.1
+          :to_hash: 1.0
+          :[]: 5.5
+          :branch: 2.0
+        :score: 7.117583859709698
+        :path: lib/neustar-ws_get_data/client.rb:100
+      Neustar::WsGetData::Client#process_response:
+        :operators:
+          :assignment: 1.0
+          :body: 1.2
+          :[]: 2.1
+          :branch: 1.0
+        :score: 3.590264614203248
+        :path: lib/neustar-ws_get_data/client.rb:63
+      Neustar::WsGetData::Client#phone_attributes:
+        :operators:
+          :assignment: 1.0
+          :query: 1.0
+        :score: 1.4142135623730951
+        :path: lib/neustar-ws_get_data/client.rb:73
+      Neustar::WsGetData::Client#none:
+        :operators:
+          :lit_fixnum: 0.25
+          :private: 1.0
+        :score: 1.25
+        :path: 
+      Neustar::WsGetData::Client#operations:
+        :operators:
+          :operations: 1.0
+        :score: 1.0
+        :path: lib/neustar-ws_get_data/client.rb:18
+      Neustar::WsGetData::Client#build_transaction_id:
+        :operators:
+          :random_number: 1.0
+        :score: 1.0
+        :path: lib/neustar-ws_get_data/client.rb:92
+      Neustar::WsGetData::Client#origination_params:
+        :operators:
+          :to_s: 1.0
+        :score: 1.0
+        :path: lib/neustar-ws_get_data/client.rb:80
+      Neustar::WsGetData::Client#query:
+        :operators:
+          :call: 1.0
+        :score: 1.0
+        :path: lib/neustar-ws_get_data/client.rb:26
+      Neustar::WsGetData::Client#batch_query:
+        :operators:
+          :call: 1.0
+        :score: 1.0
+        :path: lib/neustar-ws_get_data/client.rb:34
+:saikuro:
+  :files:
+  - :classes:
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Neustar
+      :complexity: 13
+      :lines: 109
+      :methods:
+      - :name: Neustar#call
+        :complexity: 3
+        :lines: 13
+      - :name: Neustar#extract_fault_message
+        :complexity: 2
+        :lines: 9
+      - :name: Neustar#process_response
+        :complexity: 1
+        :lines: 3
+      - :name: Neustar#phone_attributes
+        :complexity: 1
+        :lines: 2
+      - :name: Neustar#origination_params
+        :complexity: 1
+        :lines: 7
+      - :name: Neustar#build_transaction_id
+        :complexity: 1
+        :lines: 2
+      - :name: Neustar#batch_query
+        :complexity: 1
+        :lines: 2
+      - :name: Neustar#query
+        :complexity: 1
+        :lines: 2
+      - :name: Neustar#operations
+        :complexity: 1
+        :lines: 2
+      - :name: Neustar#initialize
+        :complexity: 1
+        :lines: 5
+    :filename: lib/neustar-ws_get_data/client.rb
+  - :classes:
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Neustar
+      :complexity: 9
+      :lines: 155
+      :methods:
+      - :name: Neustar#process_response
+        :complexity: 5
+        :lines: 15
+      - :name: Neustar#parse_indicators
+        :complexity: 2
+        :lines: 9
+      - :name: Neustar#execute_request
+        :complexity: 1
+        :lines: 16
+      - :name: Neustar#query
+        :complexity: 1
+        :lines: 9
+    - :class_name: Neustar::OutOfDomainError
+      :complexity: 0
+      :lines: 0
+      :methods: []
+    :filename: lib/neustar-ws_get_data/elements/phone_attributes.rb
+  - :classes:
+    - :class_name: ''
+      :complexity: 1
+      :lines: 0
+      :methods: []
+    - :class_name: Neustar
+      :complexity: 0
+      :lines: 9
+      :methods: []
+    - :class_name: Neustar::WsGetData
+      :complexity: 0
+      :lines: 3
+      :methods: []
+    - :class_name: Neustar::Error
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Neustar::ConfigurationError
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    :filename: lib/neustar-ws_get_data.rb
+  - :classes:
+    - :class_name: Neustar
+      :complexity: 0
+      :lines: 3
+      :methods: []
+    :filename: lib/neustar-ws_get_data/version.rb
+  :classes:
+  - :name: Neustar
+    :complexity: 13
+    :lines: 109
+    :defs:
+    - :name: Neustar#initialize
+      :complexity: 1
+      :lines: 5
+    - :name: Neustar#operations
+      :complexity: 1
+      :lines: 2
+    - :name: Neustar#query
+      :complexity: 1
+      :lines: 2
+    - :name: Neustar#batch_query
+      :complexity: 1
+      :lines: 2
+    - :name: Neustar#call
+      :complexity: 3
+      :lines: 13
+    - :name: Neustar#process_response
+      :complexity: 1
+      :lines: 3
+    - :name: Neustar#phone_attributes
+      :complexity: 1
+      :lines: 2
+    - :name: Neustar#origination_params
+      :complexity: 1
+      :lines: 7
+    - :name: Neustar#build_transaction_id
+      :complexity: 1
+      :lines: 2
+    - :name: Neustar#extract_fault_message
+      :complexity: 2
+      :lines: 9
+  - :name: Neustar
+    :complexity: 9
+    :lines: 155
+    :defs:
+    - :name: Neustar#query
+      :complexity: 1
+      :lines: 9
+    - :name: Neustar#execute_request
+      :complexity: 1
+      :lines: 16
+    - :name: Neustar#process_response
+      :complexity: 5
+      :lines: 15
+    - :name: Neustar#parse_indicators
+      :complexity: 2
+      :lines: 9
+  - :name: ''
+    :complexity: 1
+    :lines: 0
+  - :name: Neustar
+    :complexity: 0
+    :lines: 3
+  - :name: Neustar
+    :complexity: 0
+    :lines: 9
+  - :name: Neustar::WsGetData
+    :complexity: 0
+    :lines: 3
+  - :name: Neustar::OutOfDomainError
+    :complexity: 0
+    :lines: 0
+  - :name: Neustar::Error
+    :complexity: 0
+    :lines: 1
+  - :name: ''
+    :complexity: 0
+    :lines: 1
+  - :name: Neustar::ConfigurationError
+    :complexity: 0
+    :lines: 1
+  - :name: ''
+    :complexity: 0
+    :lines: 1
+  :methods:
+  - :name: Neustar#process_response
+    :complexity: 5
+    :lines: 15
+  - :name: Neustar#call
+    :complexity: 3
+    :lines: 13
+  - :name: Neustar#parse_indicators
+    :complexity: 2
+    :lines: 9
+  - :name: Neustar#extract_fault_message
+    :complexity: 2
+    :lines: 9
+  - :name: Neustar#origination_params
+    :complexity: 1
+    :lines: 7
+  - :name: Neustar#build_transaction_id
+    :complexity: 1
+    :lines: 2
+  - :name: Neustar#query
+    :complexity: 1
+    :lines: 9
+  - :name: Neustar#phone_attributes
+    :complexity: 1
+    :lines: 2
+  - :name: Neustar#process_response
+    :complexity: 1
+    :lines: 3
+  - :name: Neustar#execute_request
+    :complexity: 1
+    :lines: 16
+  - :name: Neustar#batch_query
+    :complexity: 1
+    :lines: 2
+  - :name: Neustar#query
+    :complexity: 1
+    :lines: 2
+  - :name: Neustar#operations
+    :complexity: 1
+    :lines: 2
+  - :name: Neustar#initialize
+    :complexity: 1
+    :lines: 5
+:reek:
+  :matches:
+  - :file_path: lib/neustar-ws_get_data.rb
+    :code_smells: []
+  - :file_path: lib/neustar-ws_get_data/client.rb
+    :code_smells:
+    - :method: '[102,'
+      :message: 104]:Neustar::WsGetData::Client#extract_fault_message calls data[:fault]
+        twice
+      :type: DuplicateMethodCall
+    - :method: '[104,'
+      :message: 105]:Neustar::WsGetData::Client#extract_fault_message calls fault[:faultstring]
+        twice
+      :type: DuplicateMethodCall
+    - :method: '[100]:Neustar::WsGetData::Client#extract_fault_message'
+      :message: doesn't depend on instance state
+      :type: UtilityFunction
+    - :method: '[100]:Neustar::WsGetData::Client#extract_fault_message'
+      :message: refers to data more than self
+      :type: FeatureEnvy
+    - :method: '[100]:Neustar::WsGetData::Client#extract_fault_message'
+      :message: refers to fault more than self
+      :type: FeatureEnvy
+    - :method: '[63]:Neustar::WsGetData::Client#process_response'
+      :message: doesn't depend on instance state
+      :type: UtilityFunction
+    - :method: '[63]:Neustar::WsGetData::Client#process_response'
+      :message: refers to response more than self
+      :type: FeatureEnvy
+    - :method: '[63]:Neustar::WsGetData::Client#process_response'
+      :message: refers to response_wrapper more than self
+      :type: FeatureEnvy
+  - :file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb
+    :code_smells:
+    - :method: '[107]:Neustar::WsGetData::PhoneAttributes#execute_request'
+      :message: doesn't depend on instance state
+      :type: UtilityFunction
+    - :method: '[107]:Neustar::WsGetData::PhoneAttributes#execute_request'
+      :message: refers to params more than self
+      :type: FeatureEnvy
+    - :method: '[152]:Neustar::WsGetData::PhoneAttributes#parse_indicators'
+      :message: doesn't depend on instance state
+      :type: UtilityFunction
+    - :method: '[152]:Neustar::WsGetData::PhoneAttributes#parse_indicators'
+      :message: refers to indicators more than self
+      :type: FeatureEnvy
+    - :method: '[152]:Neustar::WsGetData::PhoneAttributes#parse_indicators'
+      :message: refers to vals more than self
+      :type: FeatureEnvy
+    - :method: '[139]:Neustar::WsGetData::PhoneAttributes#process_response'
+      :message: contains iterators nested 2 deep
+      :type: NestedIterators
+    - :method: '[131]:Neustar::WsGetData::PhoneAttributes#process_response'
+      :message: refers to response more than self
+      :type: FeatureEnvy
+  - :file_path: lib/neustar-ws_get_data/version.rb
+    :code_smells: []
+:roodi:
+  :total:
+  - Found 0 errors.
+  :problems: []
+:stats:
+  :codeLOC: 176
+  :testLOC: 246
+  :code_to_test_ratio: 1.4
+  :lines:
+  - :name: Libraries
+    :lines: 302
+    :loc: 176
+    :classes: 4
+    :methods: 14
+    :methods_per_class: 3
+    :loc_per_method: 10
+  - :name: Neustar-ws_get_data specs
+    :lines: 206
+    :loc: 175
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Elements specs
+    :lines: 83
+    :loc: 71
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Total
+    :lines: 591
+    :loc: 422
+    :classes: 4
+    :methods: 14
+    :methods_per_class: 3
+    :loc_per_method: 28
+:hotspots:
+  files:
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:131
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '131'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:131", nil,
+        nil]'
+    details:
+      flog: complexity is 14.2
+      saikuro: average complexity is 2.2
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", nil, nil]'
+    details:
+      flog: complexity is 11.5
+      saikuro: average complexity is 1.3
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:8
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '8'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:8", nil, nil]'
+    details:
+      flog: complexity is 9.7
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:100
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '100'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:100", nil, nil]'
+    details:
+      flog: complexity is 7.1
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:152
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '152'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:152", nil,
+        nil]'
+    details:
+      flog: complexity is 4.4
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:90
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '90'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:90", nil,
+        nil]'
+    details:
+      flog: complexity is 4.4
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:63
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '63'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:63", nil, nil]'
+    details:
+      flog: complexity is 3.6
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:107
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '107'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:107", nil,
+        nil]'
+    details:
+      flog: complexity is 3.4
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:73
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '73'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:73", nil, nil]'
+    details:
+      flog: complexity is 1.4
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:18
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '18'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:18", nil, nil]'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:92
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '92'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:92", nil, nil]'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:80
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '80'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:80", nil, nil]'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:34
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '34'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:34", nil, nil]'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:26
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '26'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:26", nil, nil]'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: 
+      hash_key: '["lib/neustar-ws_get_data/client.rb", nil, nil]'
+    details:
+      reek: found 8 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: 
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb", nil, nil]'
+    details:
+      reek: found 7 code smells
+  classes:
+  - location:
+      class_name: main
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "main", nil]'
+    details:
+      flog: complexity is 11.8
+  - location:
+      class_name: PhoneAttributes
+      method_name: 
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:131
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '131'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:131", "PhoneAttributes",
+        nil]'
+    details:
+      flog: average complexity is 6.0
+      reek: found 7 code smells
+  - location:
+      class_name: Client
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Client", nil]'
+    details:
+      flog: average complexity is 3.6
+      reek: found 6 code smells
+  - location:
+      class_name: Neustar
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", nil]'
+    details:
+      saikuro: average complexity is 1.6
+  - location:
+      class_name: '[104,'
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: 
+      hash_key: '["lib/neustar-ws_get_data/client.rb", "[104,", nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: '[102,'
+      method_name: 
+      file_path: lib/neustar-ws_get_data/client.rb
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: 
+      hash_key: '["lib/neustar-ws_get_data/client.rb", "[102,", nil]'
+    details:
+      reek: found 1 code smells
+  methods:
+  - location:
+      class_name: PhoneAttributes
+      method_name: PhoneAttributes#process_response
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:131
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '131'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:131", "PhoneAttributes",
+        "PhoneAttributes#process_response"]'
+      simple_method_name: '#process_response'
+    details:
+      flog: complexity is 14.2
+      reek: found 2 code smells
+  - location:
+      class_name: main
+      method_name: main#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "main", "main#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 11.8
+  - location:
+      class_name: Client
+      method_name: Client#call
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Client", "Client#call"]'
+      simple_method_name: '#call'
+    details:
+      flog: complexity is 11.5
+  - location:
+      class_name: Client
+      method_name: Client#initialize
+      file_path: lib/neustar-ws_get_data/client.rb:8
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '8'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:8", "Client", "Client#initialize"]'
+      simple_method_name: '#initialize'
+    details:
+      flog: complexity is 9.7
+  - location:
+      class_name: Client
+      method_name: Client#extract_fault_message
+      file_path: lib/neustar-ws_get_data/client.rb:100
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '100'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:100", "Client", "Client#extract_fault_message"]'
+      simple_method_name: '#extract_fault_message'
+    details:
+      flog: complexity is 7.1
+      reek: found 3 code smells
+  - location:
+      class_name: PhoneAttributes
+      method_name: PhoneAttributes#parse_indicators
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:152
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '152'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:152", "PhoneAttributes",
+        "PhoneAttributes#parse_indicators"]'
+      simple_method_name: '#parse_indicators'
+    details:
+      flog: complexity is 4.4
+      reek: found 3 code smells
+  - location:
+      class_name: PhoneAttributes
+      method_name: PhoneAttributes#query
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:90
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '90'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:90", "PhoneAttributes",
+        "PhoneAttributes#query"]'
+      simple_method_name: '#query'
+    details:
+      flog: complexity is 4.4
+  - location:
+      class_name: Client
+      method_name: Client#process_response
+      file_path: lib/neustar-ws_get_data/client.rb:63
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '63'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:63", "Client", "Client#process_response"]'
+      simple_method_name: '#process_response'
+    details:
+      flog: complexity is 3.6
+      reek: found 3 code smells
+  - location:
+      class_name: PhoneAttributes
+      method_name: PhoneAttributes#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "PhoneAttributes", "PhoneAttributes#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 3.8
+  - location:
+      class_name: PhoneAttributes
+      method_name: PhoneAttributes#execute_request
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:107
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '107'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:107", "PhoneAttributes",
+        "PhoneAttributes#execute_request"]'
+      simple_method_name: '#execute_request'
+    details:
+      flog: complexity is 3.4
+      reek: found 2 code smells
+  - location:
+      class_name: Neustar
+      method_name: Neustar#process_response
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#process_response"]'
+      simple_method_name: '#process_response'
+    details:
+      saikuro: average complexity is 3.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#call
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#call"]'
+      simple_method_name: '#call'
+    details:
+      saikuro: complexity is 3.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#parse_indicators
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:131
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '131'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:131", "Neustar",
+        "Neustar#parse_indicators"]'
+      simple_method_name: '#parse_indicators'
+    details:
+      saikuro: complexity is 2.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#extract_fault_message
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#extract_fault_message"]'
+      simple_method_name: '#extract_fault_message'
+    details:
+      saikuro: complexity is 2.0
+  - location:
+      class_name: Client
+      method_name: Client#phone_attributes
+      file_path: lib/neustar-ws_get_data/client.rb:73
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '73'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:73", "Client", "Client#phone_attributes"]'
+      simple_method_name: '#phone_attributes'
+    details:
+      flog: complexity is 1.4
+  - location:
+      class_name: Client
+      method_name: Client#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Client", "Client#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 1.2
+  - location:
+      class_name: Client
+      method_name: Client#origination_params
+      file_path: lib/neustar-ws_get_data/client.rb:80
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '80'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:80", "Client", "Client#origination_params"]'
+      simple_method_name: '#origination_params'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Client
+      method_name: Client#query
+      file_path: lib/neustar-ws_get_data/client.rb:26
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '26'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:26", "Client", "Client#query"]'
+      simple_method_name: '#query'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Client
+      method_name: Client#batch_query
+      file_path: lib/neustar-ws_get_data/client.rb:34
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '34'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:34", "Client", "Client#batch_query"]'
+      simple_method_name: '#batch_query'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Client
+      method_name: Client#build_transaction_id
+      file_path: lib/neustar-ws_get_data/client.rb:92
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '92'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:92", "Client", "Client#build_transaction_id"]'
+      simple_method_name: '#build_transaction_id'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#phone_attributes
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#phone_attributes"]'
+      simple_method_name: '#phone_attributes'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#origination_params
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#origination_params"]'
+      simple_method_name: '#origination_params'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#build_transaction_id
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#build_transaction_id"]'
+      simple_method_name: '#build_transaction_id'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#batch_query
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#batch_query"]'
+      simple_method_name: '#batch_query'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#query
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#query"]'
+      simple_method_name: '#query'
+    details:
+      saikuro: average complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#operations
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#operations"]'
+      simple_method_name: '#operations'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#initialize
+      file_path: lib/neustar-ws_get_data/client.rb:42
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '42'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:42", "Neustar", "Neustar#initialize"]'
+      simple_method_name: '#initialize'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Client
+      method_name: Client#operations
+      file_path: lib/neustar-ws_get_data/client.rb:18
+      file_name: lib/neustar-ws_get_data/client.rb
+      line_number: '18'
+      hash_key: '["lib/neustar-ws_get_data/client.rb:18", "Client", "Client#operations"]'
+      simple_method_name: '#operations'
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Neustar
+      method_name: Neustar#execute_request
+      file_path: lib/neustar-ws_get_data/elements/phone_attributes.rb:131
+      file_name: lib/neustar-ws_get_data/elements/phone_attributes.rb
+      line_number: '131'
+      hash_key: '["lib/neustar-ws_get_data/elements/phone_attributes.rb:131", "Neustar",
+        "Neustar#execute_request"]'
+      simple_method_name: '#execute_request'
+    details:
+      saikuro: complexity is 1.0
