@@ -1,6 +1,6 @@
 module SavonSupport
-  def soap_fault
-    Savon::SOAPFault.new(new_response(:body => load_fixture('fault.xml')), nori)
+  def soap_fault(name)
+    Savon::SOAPFault.new(new_response(:body => load_fixture(name)), nori)
   end
 
   def load_fixture(name)

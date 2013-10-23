@@ -81,12 +81,23 @@ module Neustar::WsGetData
       it "should re-raise Savon::SOAPFault as a native exception" do
         savon_client.
           should_receive(:call).
-          and_raise(soap_fault)
+          and_raise(soap_fault('fault.xml'))
 
         expect {
           client.call(service, {})
         }.to raise_error( Neustar::Error,
                           "Access Violation - Invalid Origination" )
+      end
+
+      it "should Neustar::Error for unknown errors" do
+        savon_client.
+          should_receive(:call).
+          and_raise(soap_fault('improper_fault.xml'))
+
+        expect {
+          client.call(service, {})
+        }.to raise_error( Neustar::Error,
+                          "Unknown Error" )
       end
     end
 
