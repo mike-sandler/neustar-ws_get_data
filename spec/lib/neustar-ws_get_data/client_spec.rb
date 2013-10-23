@@ -2,28 +2,30 @@ require 'spec_helper'
 
 module Neustar::WsGetData
   describe Client do
-    let(:credentials) { {:username => 'foo', :password => 'bar', :service_id => 123} }
-    let(:client) { Client.new(credentials) }
+    let(:credentials) { { :username   => 'foo',
+                          :password   => 'bar',
+                          :service_id => 123 } }
+    let(:client)       { Client.new(credentials) }
     let(:savon_client) { double('Savon Client') }
-    let(:service)  { :query }
+    let(:service)      { :query }
 
     let(:successful_response) { double(Savon::Response, :body => body) }
     let(:body) do
       {
         :query_response => {
           :response => {
-            :trans_id => "12345",
-            :error_code => "0",
+            :trans_id    => "12345",
+            :error_code  => "0",
             :error_value => nil,
-            :result => {
+            :result      => {
               :element => {
-                :id => "1320",
+                :id         => "1320",
                 :error_code => "0",
-                :value => "N,U,A1,W"
+                :value      => "N,U,A1,W"
               }
             }
           },
-         :@xmlns=>"http://TARGUSinfo.com/WS-GetData"
+         :@xmlns => "http://TARGUSinfo.com/WS-GetData"
         }
       }
     end
@@ -33,7 +35,7 @@ module Neustar::WsGetData
     end
 
     describe "operations" do
-      it "should fetch available operations from savon" do
+      it "should fetch the available operations from Savon" do
         operations = [:super, :duper]
 
         savon_client.should_receive(:operations).and_return(operations)
@@ -44,7 +46,7 @@ module Neustar::WsGetData
     end
 
     describe "query" do
-      it "should call with query as service" do
+      it "should call with query as a service" do
         options = {:foo => 'bar'}
         client.should_receive(:call).with(:query, options)
 
@@ -53,7 +55,7 @@ module Neustar::WsGetData
     end
 
     describe "batch_query" do
-      it "should call with batch_query as service" do
+      it "should call with batch_query as a service" do
         options = {:foo => 'bar'}
         client.should_receive(:call).with(:batch_query, options)
 
@@ -62,7 +64,7 @@ module Neustar::WsGetData
     end
 
     describe "call" do
-      it "should execute call on savon client and process response" do
+      it "should execute #call on the Savon client and process the response" do
         result = "mock result"
 
         savon_client.
@@ -70,33 +72,36 @@ module Neustar::WsGetData
           with(service, hash_including(:message => anything)).
           and_return(successful_response)
 
-        client.should_receive(:process_response).with(service, successful_response).and_return(result)
+        client.should_receive(:process_response).
+               with(service, successful_response).
+               and_return(result)
         client.call(service, {}).should == result
       end
 
-      it "should re-raise Savon::SOAPFault as native exception" do
+      it "should re-raise Savon::SOAPFault as a native exception" do
         savon_client.
           should_receive(:call).
           and_raise(soap_fault)
 
         expect {
           client.call(service, {})
-        }.to raise_error(Neustar::Error, "Access Violation - Invalid Origination")
+        }.to raise_error( Neustar::Error,
+                          "Access Violation - Invalid Origination" )
       end
     end
 
     describe "process_response" do
-      it "should extract base query response" do
+      it "should extract a base query response" do
         client.process_response(:query, successful_response).should == \
         {
-          :trans_id => "12345",
-          :error_code => "0",
+          :trans_id    => "12345",
+          :error_code  => "0",
           :error_value => nil,
-          :result => {
+          :result      => {
             :element => {
-              :id => "1320",
+              :id         => "1320",
               :error_code => "0",
-              :value => "N,U,A1,W"
+              :value      => "N,U,A1,W"
             }
           }
         }
@@ -104,7 +109,7 @@ module Neustar::WsGetData
     end
 
     describe "origination_params" do
-      it "should set username and password in origination field" do
+      it "should set the username and password in the origination field" do
         params = client.origination_params
         params[:serviceId].should == "123"
 
@@ -115,7 +120,7 @@ module Neustar::WsGetData
     end
 
     describe "build_transaction_id" do
-      it "should generate integer identifier" do
+      it "should generate an integer identifier" do
         client.build_transaction_id.should be_a(Integer)
       end
     end
