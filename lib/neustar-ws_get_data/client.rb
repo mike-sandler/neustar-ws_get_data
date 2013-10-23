@@ -1,18 +1,23 @@
 # Base client used to interface with WS-GetData query and batch_query services.
 class Neustar::WsGetData::Client
-  # Maximum transaction ID
+  # Maximum transaction ID:
   MAX_TRANSACTION_ID = 1_000_000
 
-  # @param [String] username
-  # @param [String] password
+  # @param [Hash] options The configuration options
+  # @option options [String] :username Name of the Neustar account
+  # @option options [String] :password Password for the Neustar account
+  # @option options [String] ::service_id Service ID for the Neustar account
   def initialize(options = {})
-    @service = Savon.client(:wsdl => Neustar::WsGetData::WSDL)
-    @username   = options[:username] or raise ConfigurationError, "Username required"
-    @password   = options[:password] or raise ConfigurationError, "Password required"
-    @service_id = options[:service_id] or raise ConfigurationError, "Service ID required"
+    @service    = Savon.client(:wsdl => Neustar::WsGetData::WSDL)
+    @username   = options[:username] or
+                    raise ConfigurationError, "Username required"
+    @password   = options[:password] or
+                    raise ConfigurationError, "Password required"
+    @service_id = options[:service_id] or
+                    raise ConfigurationError, "Service ID required"
   end
 
-  # List operations available to the client.
+  # List the operations available to the client.
   #
   # @return [Array<Symbol>]
   def operations
@@ -21,7 +26,7 @@ class Neustar::WsGetData::Client
 
   # Execute an 'interactive' query.
   #
-  # @param [Hash] params 
+  # @param [Hash] params
   # @return [Hash]
   def query(params)
     call(:query, params)
@@ -29,13 +34,13 @@ class Neustar::WsGetData::Client
 
   # Execute a batch query.
   #
-  # @param [Hash] params 
+  # @param [Hash] params
   # @return [Hash]
   def batch_query(params)
     call(:batch_query, params)
   end
 
-  # Execute the given service type.
+  # Execute a call to the given service type.
   #
   # @param [Symbol] service
   # @return [Hash]
@@ -54,7 +59,7 @@ class Neustar::WsGetData::Client
     end
   end
 
-  # Execute intial post-processing and error handling on the response.
+  # Execute initial post-processing and error handling on the response.
   #
   # @param [Symbol] service
   # @param [Savon::Response] response
@@ -65,7 +70,7 @@ class Neustar::WsGetData::Client
     response_wrapper && response_wrapper[:response]
   end
 
-  # Helper to access PhoneAttributes element
+  # Helper to access PhoneAttributes element.
   # TODO: Refactor out of here
   #
   # @param [#to_s] phone_number
@@ -99,10 +104,9 @@ class Neustar::WsGetData::Client
   # @return [String]
   def extract_fault_message(error)
     data = error.to_hash
-    data[:fault][:faultstring]
 
-    if fault = data[:fault] and fault[:faultstring]
-      fault[:faultstring]
+    if (fault = data[:fault]) and (faultstring = fault[:faultstring]) then
+      faultstring
     else
       "Unknown Error"
     end

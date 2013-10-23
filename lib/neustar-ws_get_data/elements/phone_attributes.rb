@@ -10,7 +10,7 @@ module Neustar::WsGetData::PhoneAttributes
   # Error raised when an invalid phone number is sent to the service.
   class OutOfDomainError < Neustar::Error; end
 
-  # ID for "Phone Attributes"
+  # ID for "Phone Attributes".
   ELEMENT_ID = 1320
 
   # Service ID to specify the telephone number in a request.
@@ -80,7 +80,7 @@ module Neustar::WsGetData::PhoneAttributes
   OUT_OF_DOMAIN_ERROR = "6"
 
   # Method used to execute a query against the Phone Attributes element of the
-  # WS-GetData Service..
+  # WS-GetData Service.
   #
   # @param [Neustar::WsGetData::Client] client
   # @param [#to_s] phone_number
@@ -102,6 +102,8 @@ module Neustar::WsGetData::PhoneAttributes
   #
   # @param [Neustar::WsGetData::Client] client
   # @param [Hash] params
+  # @option params [String] :phone_number
+  # @option params [String] :indicators
   #
   # @return [Hash]
   def execute_request(client, params)
@@ -125,7 +127,11 @@ module Neustar::WsGetData::PhoneAttributes
   # Do element specific processing on response from client.
   #
   # @param [Hash] response
+  # @option response [String] :error_code The stringified number
+  #                                       of the error code
+  # @option response [Hash] :result
   # @param [Hash] params
+  # @option params [String] :phone_number
   #
   # @return [Hash]
   def process_response(response, params)
@@ -159,4 +165,4 @@ module Neustar::WsGetData::PhoneAttributes
 
     vals.join(',')
   end
-end 
+end
