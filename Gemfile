@@ -5,7 +5,6 @@ gem 'savon', '~> 2.2'
 group :development do
   gem "yard"
   gem "bundler"
-  gem "jeweler", "~> 1.6.4"
 end
 
 group :development, :test do
