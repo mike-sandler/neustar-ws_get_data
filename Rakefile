@@ -22,13 +22,15 @@ task :default => :spec
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "neustar-ws_get_data"
-  gem.homepage = ""
-  gem.license = "MIT"
-  gem.summary = %Q{Ruby wrapper for Neustar's WS-GetData Services}
-  gem.description = %Q{This gem wraps the SOAP interface for Neustar's
-    WS-GetData Services. It supports both interactive and batch queries}
-  gem.email = "zach@tmxcredit.com"
-  gem.authors = ["Zachary Belzer"]
+  # gem is a Gem::Specification...
+  # see http://docs.rubygems.org/read/chapter/20 for more options
+  gem.name        = "neustar-ws_get_data"
+  gem.homepage    = "http://github.com/TMXCredit/neustar-ws_get_data"
+  gem.license     = "MIT"
+  gem.summary     = %Q{Ruby wrapper for Neustar's WS-GetData Services}
+  gem.description = "This gem wraps the SOAP interface for Neustar's" \
+                    "WS-GetData Services. It supports both interactive and " \
+                    "batch queries."
+  gem.email       = ["rubygems@tmxcredit.com", "zach@tmxcredit.com"]
+  gem.authors     = ["TMX Credit", "Zachary Belzer"]
 end
