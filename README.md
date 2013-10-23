@@ -11,28 +11,33 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    bundle
 
 Or install it yourself as:
 
-    $ gem install neustar-ws_get_data
+    gem install neustar-ws_get_data
 
 ## Usage
 
+```ruby
   client = Neustar::WsGetData::Client.new(
-    :username => 'username',
-    :password => 'password',
+    :username   => 'username',
+    :password   => 'password',
     :service_id => 123456
   )
 
   client.operations
-  => [:query, :batch_query]
+  #=> [:query, :batch_query]
 
   client.phone_attributes('8583145300', [:phone_type])
-  => {:phone_type=>:wireless}
+  #=> {:phone_type => :wireless}
 
   client.phone_attributes('8583145300')
-  => {:prepaid_phone=>false, :business_phone=>:unknown, :phone_in_service=>"Active for 1 month or less", :phone_type=>:wireless}
+  #=> {:prepaid_phone    => false,
+       :business_phone   => :unknown,
+       :phone_in_service => "Active for 1 month or less",
+       :phone_type       => :wireless}
+```
 
 ## Contributing
 
