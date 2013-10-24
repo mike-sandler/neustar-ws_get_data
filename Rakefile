@@ -20,3 +20,15 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 
 task :default => :spec
+
+desc "Release tag for this version to github"
+task "git:release" do
+  `git tag v#{Neustar::WsGetData::VERSION}`
+  `git push --tags`
+end
+
+desc "Build and push gem to rubygems"
+task "build" do
+  `gem build neustar-ws_get_data.gemspec`
+  `gem push neustar-ws_get_data-#{Neustar::WsGetData::VERSION}.gem`
+end
