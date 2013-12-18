@@ -39,6 +39,10 @@ Or install it yourself as:
        :phone_type       => :wireless}
 ```
 
+## Credits
+
+* [Zach Belzer](https://github.com/zbelzer)
+
 ## Contributing
 
 1. Fork it

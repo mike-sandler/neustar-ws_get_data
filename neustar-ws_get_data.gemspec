@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors = ["TMX Credit", "Zachary Belzer"]
   s.date = "2013-10-23"
   s.description = "This gem wraps the SOAP interface for Neustar's WS-GetData Services. It supports both interactive and batch queries."
-  s.email = ["rubygems@tmxcredit.com", "zach@tmxcredit.com"]
+  s.email = ["rubygems@tmxcredit.com", "zbelzer@gmail.com"]
   s.homepage = "http://github.com/TMXCredit/neustar-ws_get_data"
   s.licenses = ["MIT"]
   s.summary = "Ruby wrapper for Neustar's WS-GetData Services"
